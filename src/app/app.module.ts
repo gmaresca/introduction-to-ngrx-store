@@ -10,16 +10,20 @@ import { ShoppingReducer } from './store/reducers/shopping.reducer';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { MyCounterComponent } from './my-counter/my-counter.component';
+import { counterReducer } from './my-counter/counter.reducers';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MyCounterComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     StoreModule.forRoot({
-      shopping: ShoppingReducer
+      shopping: ShoppingReducer,
+      count: counterReducer
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
